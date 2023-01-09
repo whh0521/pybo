@@ -4,8 +4,11 @@ from django.db.models import Q, Count
 
 from ..models import Question
 
+import logging
+logger = logging.getLogger('pybo')
+
 def index(request):
-    3/0
+    logger.info("INFO 레벨로 출력")
     '''
     pybo 목록 출력
     '''
@@ -45,3 +48,5 @@ def detail(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     context = {'question' : question}
     return render(request, 'pybo/question_detail.html', context)
+
+
